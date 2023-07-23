@@ -18,27 +18,39 @@ while (terminar === false){
 
     if(escolha === 'comer'){
         novoTamagotchi.fome = true;
+        novoTamagotchi.higiene = false;
+        novoTamagotchi.felicidade = true;
     }
     if(escolha === 'jogar video game'){
-        novoTamagotchi.fome = true;
         novoTamagotchi.fome = false;
+        novoTamagotchi.dormir = false;
+        novoTamagotchi.trabalhar = false;
+        novoTamagotchi.felicidade = true;
+        novoTamagotchi.energia = false;
     }
     if(escolha === 'dormir'){
-        novoTamagotchi.fome = true;
         novoTamagotchi.fome = false;
+        novoTamagotchi.energia = true;
+        novoTamagotchi.felicidade = true;
     }
     if(escolha === 'tomar banho'){
-        novoTamagotchi.fome = true;
+        novoTamagotchi.higiene = true;
+        novoTamagotchi.trabalhar = false;
     }
     if(escolha === 'trabalhar'){
-        novoTamagotchi.fome = true;
         novoTamagotchi.fome = false;
+        novoTamagotchi.felicidade = false;
+        novoTamagotchi.higiene = false;
+        novoTamagotchi.energia = false;
+        novoTamagotchi.trabalhar = true;
     }
 
     //mostrar status
 
     let status = novoTamagotchi.mostrarStatus();
     alert(status);
+
+    //continuar ou acabar
 
     let continuar = prompt('deseja continuar? "sim e s" ou "qualquer outro botão para sair"');
     if (continuar === 'sim' || continuar === 's'){
