@@ -16,33 +16,20 @@ while (terminar === false){
 
     //consequencias
 
-    if(escolha === 'comer'){
-        novoTamagotchi.fome = true;
-        novoTamagotchi.higiene = false;
-        novoTamagotchi.felicidade = true;
+    if (escolha === 'comer'){
+        novoTamagotchi.acao(true,null,false,null,false);
     }
-    if(escolha === 'jogar video game'){
-        novoTamagotchi.fome = false;
-        novoTamagotchi.dormir = false;
-        novoTamagotchi.trabalhar = false;
-        novoTamagotchi.felicidade = true;
-        novoTamagotchi.energia = false;
+    if (escolha === 'jogar video game'){
+        novoTamagotchi.acao(null,true,null,false,false);
     }
-    if(escolha === 'dormir'){
-        novoTamagotchi.fome = false;
-        novoTamagotchi.energia = true;
-        novoTamagotchi.felicidade = true;
+    if (escolha === 'dormir'){
+        novoTamagotchi.acao(false,null,null,true,false);
     }
-    if(escolha === 'tomar banho'){
-        novoTamagotchi.higiene = true;
-        novoTamagotchi.trabalhar = false;
+    if (escolha === 'tomar banho'){
+        novoTamagotchi.acao(null,null,true,null,false);
     }
-    if(escolha === 'trabalhar'){
-        novoTamagotchi.fome = false;
-        novoTamagotchi.felicidade = false;
-        novoTamagotchi.higiene = false;
-        novoTamagotchi.energia = false;
-        novoTamagotchi.trabalhar = true;
+    if (escolha === 'trabalhar'){
+        novoTamagotchi.acao(false,false,false,false,true);
     }
 
     //mostrar status
