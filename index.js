@@ -1,51 +1,51 @@
-import Tamagotchi from './Tamagotchi.js';
+import Tamagotchi from "./Tamagotchi.js";
 
-let nome = prompt('qual o nome você quer dar para seu tamagotchi?')
-let novoTamagotchi = new Tamagotchi(nome);
-alert(`seja bem vindx, cuida bem de seu ${novoTamagotchi.nome}`)
-let terminar = false;
-while (terminar === false){
+const nameTamagotchi = prompt("entre com o nome do seu tamagotchi: ");
+let ok = true;
+const newTamagotchi = new Tamagotchi(nameTamagotchi);
 
-    //escolha
-    let escolha = prompt(`o que ${novoTamagotchi.nome} deve fazer agora?
-    - comer
-    - jogar video game
-    - dormir
-    - tomar banho
-    - trabalhar`);
+newTamagotchi.printStatus();
 
-    //consequencias
+while (ok) {
+  let question = prompt(
+    `o que deseja fazer com ${newTamagotchi.name}:\n` +
+      "1. alimentar\n" +
+      "2. cuidar\n" +
+      "3. brincar\n" +
+      "4. tomar banhor\n" +
+      "5. estudar\n" +
+      "6. trabalhar\n"
+  );
 
-    if (escolha === 'comer'){
-        novoTamagotchi.acao(true,null,false,null,false);
-    }
-    if (escolha === 'jogar video game'){
-        novoTamagotchi.acao(null,true,null,false,false);
-    }
-    if (escolha === 'dormir'){
-        novoTamagotchi.acao(false,null,null,true,false);
-    }
-    if (escolha === 'tomar banho'){
-        novoTamagotchi.acao(null,null,true,null,false);
-    }
-    if (escolha === 'trabalhar'){
-        novoTamagotchi.acao(false,false,false,false,true);
-    }
+  console.log(typeof question);
 
-    //mostrar status
-
-    let status = novoTamagotchi.mostrarStatus();
-    alert(status);
-
-    //continuar ou acabar
-
-    let continuar = prompt('deseja continuar? "sim e s" ou "qualquer outro botão para sair"');
-    if (continuar === 'sim' || continuar === 's'){
-        terminar = false;
-    }else{
-        alert('até mais =)');
-        terminar = true;
-    }
+  switch (question) {
+    case "1":
+      newTamagotchi.feed();
+      break;
+    case "2":
+      newTamagotchi.care();
+      break;
+    case "3":
+      newTamagotchi.play();
+      break;
+    case "4":
+      newTamagotchi.shower();
+      break;
+    case "5":
+      newTamagotchi.study();
+      break;
+    case "6":
+      newTamagotchi.work();
+      break;
+    default:
+      alert("operação inválida");
+  }
+  newTamagotchi.getOld();
+  newTamagotchi.printStatus();
+  if (newTamagotchi.life == false) {
+    alert(`${newTamagotchi.name} morreu :(\n`+
+    `você fez: ${newTamagotchi.age * 100} pontos`);
+    ok = false;
+  }
 }
-
-console.log(novoTamagotchi.fome)
