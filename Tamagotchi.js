@@ -93,6 +93,7 @@ export default class Tamagotchi {
       `--status--\n` +
         `nome: ${this.name}\n` +
         `idade: ${this.age}\n` +
+        `fome: ${this.hunger}\n` +
         `saúde: ${this.health}\n` +
         `felicidade: ${this.happiness}\n` +
         `limpeza: ${this.clean}\n` +
